@@ -1,14 +1,14 @@
 <h2>スケジュール新規作成</h2>
 
-     <% if @user.errors.any? %>
-      <% @user.errors.full_messages.each do |message| %>
-      <ul>
-       <li><%= message %></li>
-      </ul>
-     <% end %>
-    <% end %>
- 
     <%= form_with model: @user, local: true do |f| %>
+      <% if @user.errors.any? %>
+       <% @user.errors.full_messages.each do |message| %>
+        <ul>
+         <li><%= message %></li>
+        </ul>
+       <% end %>
+      <% end %>
+
       <table>
         <tr>
           <th><%= f.label :title ,"タイトル" %></th>
