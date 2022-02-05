@@ -15,11 +15,11 @@
   </tr>
   <tr>
     <th>終日</th>
-    <td><%= @user.alldays %></td> 
-        <% if @user.alldays == "1" %>
-            ◯
-        <% else %>
-        <% end %>
+    <td><% if @user.alldays == true %> 
+                 ○
+                <% else %>
+
+                <% end %></td>
   </tr>
   <tr>
     <th>スケジュールメモ</th>
