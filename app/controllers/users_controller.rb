@@ -17,7 +17,7 @@ class UsersController < ApplicationController
       flash[:notice] = "スケジュールを新規登録しました"
       redirect_to :users
     else
-      render "new"
+      render "new", status: :unprocessable_entity
     end
   end
 
@@ -35,7 +35,7 @@ class UsersController < ApplicationController
       flash[:notice] = "「ID:#{@user.id} タイトル:#{@user.title}」の情報を更新しました"
       redirect_to :users
     else
-      render "edit"
+      render "edit", status: :unprocessable_entity
     end
   end
 
