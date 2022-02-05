@@ -3,6 +3,8 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+    @user = User.find_by(id: params[:id])
+    @user_count = User.all.count
   end
 
   def new
@@ -11,8 +13,10 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(params.require(:user).permit(:title, :start, :end, :alldays, :memo))
+    binding.pry
     if @user.save
       flash[:notice] = "スケジュールを新規登録しました"
+      binding.pry
       redirect_to :users
     else
       render "new"
@@ -29,7 +33,8 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    if @user.update(params.require(:user).permit(:title, :start, :end, :alldays,))
+    if @user.update(params.require(:user).permit(:title, :start, :end, :alldays, :memo))
+     binding.pry 
       flash[:notice] = "「ID:#{@user.id} タイトル:#{@user.title}」の情報を更新しました"
       redirect_to :users
     else

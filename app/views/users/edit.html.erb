@@ -19,7 +19,7 @@
 
         <tr>
           <th><%= f.label :alldays ,"終日" %></th>
-          <td><%= f.check_box :alldays, {class: "check_box"}, true, false %>
+          <td><%= f.check_box :alldays, :as => :boolean %>
           <br>終日の場合はチェックを入れます</td>
         </tr>
 

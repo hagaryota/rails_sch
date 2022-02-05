@@ -28,7 +28,7 @@
             <td><%= user.end %></td>
             <td><% if user.alldays = true %> 
                  ○ 
-                <% else user.alldays = false %>
+                <% else %>
 
                 <% end %></td>
             <td><%= user.updated_at.to_s(:datetime_jp) %></td>
@@ -43,3 +43,7 @@
     </table>
  
     <p><%= link_to "スケジュール新規登録", :new_user %></p>
+
+    <% content_for :sum do %>
+      スケジュール合計：<%= @user_count %>
+    <% end %>
