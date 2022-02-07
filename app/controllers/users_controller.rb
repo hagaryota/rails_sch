@@ -45,4 +45,4 @@ class UsersController < ApplicationController
     flash[:notice] = "ID:#{@user.id} タイトル:#{@user.title}」の情報を削除しました"
     redirect_to :users
   end
-end
+end 
